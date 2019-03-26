@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Date</title>
+        <link rel="stylesheet" href="Date.css">
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <script>
+            digitalclock = ()=> {
+              var date = new Date();
+              var zone = "AM";
+              time = (num) =>{
+                  zone = (num>12)? "PM":"AM";
+                  if(num>12)
+                    return num-12;
+                  else
+                    return num;
+              }
+              digit = (num) => {
+                  num = (num<10)? ("0"+num):num;
+                  return num;
+              }
+              document.getElementById('content').innerHTML = time(date.getHours()) +":"+digit(date.getMinutes())+":"+digit(date.getSeconds())+" "+zone;
+              setTimeout(digitalclock, 500);
+            }
+            conversion = () => {
+                //var a = "1234a";
+                var x = document.getElementById('value').value;
+                console.log(x);
+                try
+                {
+                    if(isNaN(Number(x)))
+                        throw "0"
+                    else
+                        document.getElementById('answer').innerHTML=Number(x)
+                }
+                catch(e)
+                {
+                    document.getElementById('answer').innerHTML=e;
+                }
+                setTimeout(()=>{ document.getElementById("answer").innerHTML = '';}, 5000);
+            }
+            </script>
+    </head>
+    <body onload="digitalclock()">
+        <header id="container">
+           <h1><p>Sass Work</p></h1> 
+        </header>
+        <section>
+        <h1>Digital Clock</h1>
+        <div id="content"></div>
+    </section>
+    <section>
+        <div id="container" class="spl">
+                <label>Number Conversion</label> <br>
+                <input type="text" id="value" placeholder="Give your input" required></input>
+                <br><button onclick="conversion()">Try and catch</button>
+            <p id="answer"></p>
+        </div>
+    </section>
+    <footer id="container">
+        <p>Terms and Conditions applied</p>
+    </footer>
+    </body>
+</html>

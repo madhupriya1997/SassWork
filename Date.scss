@@ -1,0 +1,107 @@
+//Variables
+$myColor: #009a82;
+$myFontSize: 13px;
+$myMargin: 5px auto;
+$myWidth: 460px;
+
+//Mixin
+
+@mixin border {
+	border: 1px solid whitesmoke;
+ }
+ 
+
+h1 {
+	color: $myColor;
+	margin: 0;
+	padding: 0;
+}
+
+$myFontsize1: 13px;
+$myFontsize2: 18px;
+$myFontsize3: 25px;
+
+//Nesting
+
+#container {
+    width: $myWidth;
+	margin: $myMargin;
+    @include border; //mixin directives
+
+	p {
+		font-family: Sofia;
+		font-size: $myFontsize3;
+	}
+
+    h1 {
+		font-family: Tahoma;
+		font-size: $myFontsize3;
+	}
+
+	h2 {
+
+		font-family: Helvetica;
+		font-size: $myFontsize2;
+}
+   
+}
+.spl
+{
+    background-color:whitesmoke;
+}
+
+//Operators
+
+$myColor: #aa30ff;
+$myPadding: 20px;
+$thickness: 1px;
+$border: solid red;
+
+div{
+	color: $myColor;
+	padding: $myPadding+30;
+}
+
+button {
+	color: $myColor;
+	border: $thickness+5 $border;
+}
+
+//functions
+
+$myColor: black;
+$myBackground: white;
+
+body {
+     background: darken($myBackground, 20%);
+     text-align: center;
+    font-size: 20pt;
+}
+
+h1, h2 {
+     color: lighten($myColor, 10%);
+}
+
+input
+{
+    border : none;
+    padding : 5px;
+    border-bottom: 2px solid ;
+    margin : $myMargin;
+}
+
+button{
+    width: $myWidth;
+	margin: $myMargin;
+	@include border; //mixin directives
+    text-decoration: none;
+    width: 30%;
+    padding: 10px;
+    background-color: grey;
+    color: $myBackground;
+    }
+      
+button:hover {
+    background-color: $myBackground;
+    color: $myColor;
+}
